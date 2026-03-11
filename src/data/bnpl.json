@@ -1,0 +1,234 @@
+{
+  "providers": [
+    {
+      "id": "afterpay",
+      "name": "Afterpay",
+      "parent": "Block (Square)",
+      "maxAmount": 2000,
+      "installments": 4,
+      "period": "6 weeks",
+      "lateFee": 10,
+      "maxLateFee": "25% of order or $68",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Soft check",
+      "categories": [
+        "fashion",
+        "beauty",
+        "electronics",
+        "homewares",
+        "travel"
+      ],
+      "merchantCount": "100,000+",
+      "features": [
+        "In-store & online",
+        "Afterpay Card",
+        "Pulse Rewards loyalty program",
+        "Afterpay Money"
+      ],
+      "appRating": 4.8,
+      "url": "https://www.afterpay.com/en-AU"
+    },
+    {
+      "id": "zip-pay",
+      "name": "Zip Pay",
+      "parent": "Zip Co",
+      "maxAmount": 1000,
+      "installments": 0,
+      "period": "Flexible \u2014 min monthly repayment",
+      "lateFee": 0,
+      "maxLateFee": "$0 (no late fees)",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Soft check",
+      "categories": [
+        "retail",
+        "dining",
+        "entertainment",
+        "health",
+        "automotive"
+      ],
+      "merchantCount": "50,000+",
+      "features": [
+        "Flexible repayments",
+        "No late fees on Zip Pay",
+        "Zip app",
+        "In-store via Tap & Zip"
+      ],
+      "appRating": 4.3,
+      "url": "https://zip.co/au"
+    },
+    {
+      "id": "zip-money",
+      "name": "Zip Money",
+      "parent": "Zip Co",
+      "maxAmount": 50000,
+      "installments": 0,
+      "period": "Interest-free periods up to 36 months",
+      "lateFee": 0,
+      "maxLateFee": "$0",
+      "interestRate": 25.9,
+      "accountFee": 9.95,
+      "ageRequirement": 18,
+      "creditCheck": "Hard check",
+      "categories": [
+        "healthcare",
+        "dental",
+        "solar",
+        "home improvement",
+        "travel"
+      ],
+      "merchantCount": "20,000+",
+      "features": [
+        "Higher credit limits",
+        "Interest-free promos",
+        "Monthly account fee"
+      ],
+      "appRating": 4.3,
+      "url": "https://zip.co/au/zip-money"
+    },
+    {
+      "id": "humm-little",
+      "name": "humm little things",
+      "parent": "humm Group",
+      "maxAmount": 2000,
+      "installments": 5,
+      "period": "10 weeks",
+      "lateFee": 0,
+      "maxLateFee": "$0",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Soft check",
+      "categories": [
+        "retail",
+        "fashion",
+        "beauty"
+      ],
+      "merchantCount": "10,000+",
+      "features": [
+        "5 fortnightly payments",
+        "No late fees",
+        "Price promise"
+      ],
+      "appRating": 3.9,
+      "url": "https://www.shophumm.com/au/"
+    },
+    {
+      "id": "humm-big",
+      "name": "humm big things",
+      "parent": "humm Group",
+      "maxAmount": 30000,
+      "installments": 0,
+      "period": "Up to 60 months interest-free",
+      "lateFee": 0,
+      "maxLateFee": "$0",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Hard check",
+      "categories": [
+        "solar",
+        "dental",
+        "home improvement",
+        "education",
+        "automotive"
+      ],
+      "merchantCount": "5,000+",
+      "features": [
+        "Large purchases",
+        "Long interest-free periods",
+        "Monthly repayments"
+      ],
+      "appRating": 3.9,
+      "url": "https://www.shophumm.com/au/big-things/"
+    },
+    {
+      "id": "klarna",
+      "name": "Klarna",
+      "parent": "Klarna Bank AB",
+      "maxAmount": 2000,
+      "installments": 4,
+      "period": "6 weeks",
+      "lateFee": 0,
+      "maxLateFee": "$0 (pauses account instead)",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Soft check",
+      "categories": [
+        "fashion",
+        "electronics",
+        "beauty",
+        "home"
+      ],
+      "merchantCount": "50,000+ in AU",
+      "features": [
+        "Pay in 4",
+        "Klarna card",
+        "Price drop notifications",
+        "CO2 tracking"
+      ],
+      "appRating": 4.6,
+      "url": "https://www.klarna.com/au/"
+    },
+    {
+      "id": "latitude-pay",
+      "name": "LatitudePay",
+      "parent": "Latitude Financial",
+      "maxAmount": 1500,
+      "installments": 10,
+      "period": "20 weeks",
+      "lateFee": 10,
+      "maxLateFee": "$10 per missed payment",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Soft check",
+      "categories": [
+        "retail",
+        "electronics",
+        "fashion",
+        "health"
+      ],
+      "merchantCount": "10,000+",
+      "features": [
+        "10 weekly payments",
+        "In-store & online",
+        "Apple/Google Pay"
+      ],
+      "appRating": 3.8,
+      "url": "https://www.latitudefinancial.com.au/buy-now-pay-later/"
+    },
+    {
+      "id": "commbank-stepay",
+      "name": "StepPay",
+      "parent": "Commonwealth Bank",
+      "maxAmount": 4000,
+      "installments": 4,
+      "period": "6 weeks",
+      "lateFee": 0,
+      "maxLateFee": "$0 (no late fees, pauses spending)",
+      "interestRate": 0,
+      "accountFee": 0,
+      "ageRequirement": 18,
+      "creditCheck": "Existing CBA customers",
+      "categories": [
+        "anywhere Mastercard is accepted"
+      ],
+      "merchantCount": "Anywhere Mastercard accepted",
+      "features": [
+        "Virtual Mastercard",
+        "No late fees",
+        "In CommBank app",
+        "Spending limits"
+      ],
+      "appRating": 4.7,
+      "url": "https://www.commbank.com.au/banking/steppay.html"
+    }
+  ],
+  "lastUpdated": "2026-03-11",
+  "source": "Public provider websites & ASIC reports"
+}

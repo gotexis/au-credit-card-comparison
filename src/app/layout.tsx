@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AU Credit Card Comparison | Compare Australian Credit Cards 2026",
+  title: "AU Financial Products Hub | Compare Credit Cards, Loans & BNPL",
   description:
-    "Compare Australian credit cards side by side. Find the best rewards, lowest fees, and best interest rates for your needs.",
+    "Compare Australian financial products — credit cards, personal loans, car loans, and Buy Now Pay Later services. Real data, updated regularly.",
   keywords: [
-    "credit card comparison australia",
+    "financial products australia",
+    "credit card comparison",
+    "personal loan comparison australia",
+    "bnpl comparison australia",
     "best credit card australia",
-    "compare credit cards",
-    "low interest credit card",
-    "rewards credit card australia",
   ],
 };
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/credit-cards", label: "Credit Cards" },
+  { href: "/personal-loans", label: "Personal Loans" },
+  { href: "/bnpl", label: "BNPL" },
+  { href: "/tools/credit-card-comparison", label: "Compare Tool" },
+];
 
 export default function RootLayout({
   children,
@@ -21,7 +30,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 antialiased">{children}</body>
+      <body className="bg-gray-50 text-gray-900 antialiased">
+        <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-6 overflow-x-auto">
+            <Link href="/" className="font-bold text-lg text-blue-700 whitespace-nowrap">
+              💰 AU Finance Hub
+            </Link>
+            {navLinks.slice(1).map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm text-gray-600 hover:text-blue-700 whitespace-nowrap"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+        {children}
+        <footer className="bg-gray-900 text-gray-400 text-center py-8 mt-16 text-sm">
+          <p>© {new Date().getFullYear()} AU Financial Products Hub. For informational purposes only.</p>
+          <p className="mt-2 text-xs">Data sourced from public bank and provider websites. Not financial advice.</p>
+        </footer>
+      </body>
     </html>
   );
 }

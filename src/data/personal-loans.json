@@ -1,0 +1,346 @@
+{
+  "loans": [
+    {
+      "id": "commbank-fixed-personal-loan",
+      "name": "Fixed Rate Personal Loan",
+      "lender": "Commonwealth Bank",
+      "type": "fixed",
+      "minRate": 7.99,
+      "maxRate": 19.49,
+      "comparisonRate": 8.55,
+      "minAmount": 4000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No ongoing fees",
+        "Fixed repayments",
+        "Redraw not available"
+      ],
+      "secured": false,
+      "url": "https://www.commbank.com.au/personal-loans.html"
+    },
+    {
+      "id": "commbank-variable-personal-loan",
+      "name": "Variable Rate Personal Loan",
+      "lender": "Commonwealth Bank",
+      "type": "variable",
+      "minRate": 8.99,
+      "maxRate": 20.49,
+      "comparisonRate": 9.55,
+      "minAmount": 4000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "No"
+      },
+      "features": [
+        "No ongoing fees",
+        "Extra repayments",
+        "Redraw available"
+      ],
+      "secured": false,
+      "url": "https://www.commbank.com.au/personal-loans.html"
+    },
+    {
+      "id": "anz-fixed-personal-loan",
+      "name": "Fixed Rate Personal Loan",
+      "lender": "ANZ",
+      "type": "fixed",
+      "minRate": 7.49,
+      "maxRate": 18.99,
+      "comparisonRate": 8.24,
+      "minAmount": 5000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 150,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "Competitive rates",
+        "Fixed repayments"
+      ],
+      "secured": false,
+      "url": "https://www.anz.com.au/personal/personal-loans/"
+    },
+    {
+      "id": "anz-variable-personal-loan",
+      "name": "Variable Rate Personal Loan",
+      "lender": "ANZ",
+      "type": "variable",
+      "minRate": 8.49,
+      "maxRate": 19.99,
+      "comparisonRate": 9.24,
+      "minAmount": 5000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 150,
+        "monthly": 0,
+        "earlyRepayment": "No"
+      },
+      "features": [
+        "Extra repayments",
+        "Redraw available"
+      ],
+      "secured": false,
+      "url": "https://www.anz.com.au/personal/personal-loans/"
+    },
+    {
+      "id": "westpac-unsecured-personal-loan",
+      "name": "Unsecured Personal Loan",
+      "lender": "Westpac",
+      "type": "fixed",
+      "minRate": 7.99,
+      "maxRate": 19.99,
+      "comparisonRate": 8.56,
+      "minAmount": 4000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No application fee",
+        "Fixed repayments"
+      ],
+      "secured": false,
+      "url": "https://www.westpac.com.au/personal-banking/personal-loans/"
+    },
+    {
+      "id": "nab-personal-loan",
+      "name": "Personal Loan",
+      "lender": "NAB",
+      "type": "fixed",
+      "minRate": 7.99,
+      "maxRate": 18.99,
+      "comparisonRate": 9.17,
+      "minAmount": 5000,
+      "maxAmount": 55000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 10,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No application fee",
+        "Online application"
+      ],
+      "secured": false,
+      "url": "https://www.nab.com.au/personal/personal-loans"
+    },
+    {
+      "id": "ing-personal-loan",
+      "name": "Personal Loan",
+      "lender": "ING",
+      "type": "fixed",
+      "minRate": 6.99,
+      "maxRate": 14.99,
+      "comparisonRate": 7.6,
+      "minAmount": 5000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "Low rates",
+        "No ongoing fees",
+        "Fully online"
+      ],
+      "secured": false,
+      "url": "https://www.ing.com.au/personal-loans.html"
+    },
+    {
+      "id": "macquarie-personal-loan",
+      "name": "Personal Loan",
+      "lender": "Macquarie Bank",
+      "type": "fixed",
+      "minRate": 6.99,
+      "maxRate": 15.49,
+      "comparisonRate": 7.61,
+      "minAmount": 10000,
+      "maxAmount": 75000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No fees",
+        "Competitive rates",
+        "Higher max amount"
+      ],
+      "secured": false,
+      "url": "https://www.macquarie.com.au/personal-loans.html"
+    },
+    {
+      "id": "suncorp-personal-loan",
+      "name": "Fixed Personal Loan",
+      "lender": "Suncorp",
+      "type": "fixed",
+      "minRate": 7.49,
+      "maxRate": 16.49,
+      "comparisonRate": 8.11,
+      "minAmount": 5000,
+      "maxAmount": 55000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No fees",
+        "Online management"
+      ],
+      "secured": false,
+      "url": "https://www.suncorp.com.au/banking/loans/personal-loans.html"
+    },
+    {
+      "id": "bankwest-personal-loan",
+      "name": "Personal Loan",
+      "lender": "Bankwest",
+      "type": "fixed",
+      "minRate": 7.49,
+      "maxRate": 17.99,
+      "comparisonRate": 8.1,
+      "minAmount": 2000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "No fees",
+        "Low min amount",
+        "App management"
+      ],
+      "secured": false,
+      "url": "https://www.bankwest.com.au/personal/personal-loans"
+    },
+    {
+      "id": "boq-personal-loan",
+      "name": "Economy Personal Loan",
+      "lender": "Bank of Queensland",
+      "type": "variable",
+      "minRate": 8.99,
+      "maxRate": 18.49,
+      "comparisonRate": 9.6,
+      "minAmount": 2000,
+      "maxAmount": 50000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 195,
+        "monthly": 0,
+        "earlyRepayment": "No"
+      },
+      "features": [
+        "Extra repayments",
+        "Redraw available"
+      ],
+      "secured": false,
+      "url": "https://www.boq.com.au/personal/personal-loans"
+    },
+    {
+      "id": "liberty-personal-loan",
+      "name": "Personal Loan",
+      "lender": "Liberty Financial",
+      "type": "fixed",
+      "minRate": 9.49,
+      "maxRate": 22.99,
+      "comparisonRate": 10.11,
+      "minAmount": 3000,
+      "maxAmount": 50000,
+      "minTerm": 2,
+      "maxTerm": 7,
+      "fees": {
+        "application": 495,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "Accepts non-traditional income",
+        "Flexible criteria"
+      ],
+      "secured": false,
+      "url": "https://www.liberty.com.au/personal-loans"
+    },
+    {
+      "id": "commbank-car-loan",
+      "name": "Secured Car Loan",
+      "lender": "Commonwealth Bank",
+      "type": "fixed",
+      "minRate": 6.99,
+      "maxRate": 14.99,
+      "comparisonRate": 7.55,
+      "minAmount": 4000,
+      "maxAmount": 100000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 0,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "Lower rates (secured)",
+        "No ongoing fees"
+      ],
+      "secured": true,
+      "url": "https://www.commbank.com.au/car-loans.html"
+    },
+    {
+      "id": "anz-car-loan",
+      "name": "Secured Car Loan",
+      "lender": "ANZ",
+      "type": "fixed",
+      "minRate": 6.49,
+      "maxRate": 13.99,
+      "comparisonRate": 7.58,
+      "minAmount": 5000,
+      "maxAmount": 80000,
+      "minTerm": 1,
+      "maxTerm": 7,
+      "fees": {
+        "application": 295,
+        "monthly": 0,
+        "earlyRepayment": "Yes"
+      },
+      "features": [
+        "Competitive secured rates"
+      ],
+      "secured": true,
+      "url": "https://www.anz.com.au/personal/car-loans/"
+    }
+  ],
+  "lastUpdated": "2026-03-11",
+  "source": "Public bank rate pages"
+}

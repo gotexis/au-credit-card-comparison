@@ -1,204 +1,136 @@
-"use client";
-
-import { useState, useMemo } from "react";
-import { creditCards, CreditCard } from "@/data/cards";
-
-const categories = [
-  { value: "all", label: "All Cards" },
-  { value: "low-fee", label: "No/Low Fee" },
-  { value: "low-rate", label: "Low Rate" },
-  { value: "rewards", label: "Rewards" },
-  { value: "cashback", label: "Cashback" },
-  { value: "premium", label: "Premium" },
-  { value: "balance-transfer", label: "Balance Transfer" },
-];
-
-const sortOptions = [
-  { value: "fee-asc", label: "Lowest Annual Fee" },
-  { value: "rate-asc", label: "Lowest Interest Rate" },
-  { value: "fee-desc", label: "Highest Annual Fee" },
-  { value: "rewards", label: "Best Rewards" },
-];
-
-function CardRow({ card }: { card: CreditCard }) {
-  const [expanded, setExpanded] = useState(false);
-  return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="text-4xl">{card.image}</div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-lg">{card.name}</h3>
-          <p className="text-gray-500 text-sm">{card.issuer} · {card.cardNetwork}</p>
-          {card.signupBonus && (
-            <p className="text-green-700 text-sm font-medium mt-1">🎁 {card.signupBonus}</p>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-4 sm:gap-6 text-center">
-          <div>
-            <div className="text-2xl font-bold text-blue-700">${card.annualFee}</div>
-            <div className="text-xs text-gray-500">Annual Fee</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-orange-600">{card.purchaseRate}%</div>
-            <div className="text-xs text-gray-500">Purchase Rate</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-purple-600">{card.interestFreeDays}</div>
-            <div className="text-xs text-gray-500">Interest-Free Days</div>
-          </div>
-        </div>
-      </div>
-
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="mt-3 text-blue-600 text-sm hover:underline cursor-pointer"
-      >
-        {expanded ? "Hide details ▲" : "Show details ▼"}
-      </button>
-
-      {expanded && (
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm border-t pt-4">
-          <div>
-            <h4 className="font-semibold mb-2">Rates & Fees</h4>
-            <ul className="space-y-1 text-gray-600">
-              <li>Cash Advance Rate: {card.cashAdvanceRate}%</li>
-              <li>Foreign Transaction Fee: {card.foreignTransactionFee}%</li>
-              {card.balanceTransferPeriod > 0 && (
-                <li>Balance Transfer: {card.balanceTransferRate}% for {card.balanceTransferPeriod} months</li>
-              )}
-              {card.minIncome > 0 && <li>Min. Income: ${card.minIncome.toLocaleString()}</li>}
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Rewards</h4>
-            <p className="text-gray-600 mb-2">
-              {card.rewardsType === "none" ? "No rewards program" : card.rewardsRate}
-            </p>
-            <h4 className="font-semibold mb-2">Features</h4>
-            <ul className="space-y-1 text-gray-600">
-              {card.features.map((f, i) => (
-                <li key={i}>✓ {f}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+import Link from "next/link";
+import { creditCards } from "@/data/cards";
+import loansData from "@/data/personal-loans.json";
+import bnplData from "@/data/bnpl.json";
 
 export default function Home() {
-  const [category, setCategory] = useState("all");
-  const [sort, setSort] = useState("fee-asc");
-  const [search, setSearch] = useState("");
-
-  const filtered = useMemo(() => {
-    let cards = creditCards;
-    if (category !== "all") cards = cards.filter((c) => c.category === category);
-    if (search) {
-      const q = search.toLowerCase();
-      cards = cards.filter(
-        (c) =>
-          c.name.toLowerCase().includes(q) ||
-          c.issuer.toLowerCase().includes(q) ||
-          c.features.some((f) => f.toLowerCase().includes(q))
-      );
-    }
-    return [...cards].sort((a, b) => {
-      switch (sort) {
-        case "fee-asc": return a.annualFee - b.annualFee;
-        case "fee-desc": return b.annualFee - a.annualFee;
-        case "rate-asc": return a.purchaseRate - b.purchaseRate;
-        case "rewards": return b.annualFee - a.annualFee; // rough proxy
-        default: return 0;
-      }
-    });
-  }, [category, sort, search]);
+  const topCards = creditCards.slice(0, 3);
+  const topLoans = loansData.loans.slice(0, 3);
+  const topBnpl = bnplData.providers.slice(0, 3);
 
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <header className="bg-gradient-to-br from-blue-700 to-indigo-900 text-white py-16 px-4">
+      <header className="bg-gradient-to-br from-blue-700 via-indigo-800 to-purple-900 text-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            AU Credit Card Comparison
+            AU Financial Products Hub
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Compare Australian credit cards side by side. Find the best rewards, lowest fees, and rates for 2026.
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+            Compare credit cards, personal loans, and Buy Now Pay Later services across Australia. Real data from major providers.
           </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/credit-cards" className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              💳 Credit Cards
+            </Link>
+            <Link href="/personal-loans" className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              🏦 Personal Loans
+            </Link>
+            <Link href="/bnpl" className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+              🛒 BNPL
+            </Link>
+          </div>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-8">
-        {/* Filters */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          <input
-            type="text"
-            placeholder="Search cards..."
-            className="border rounded-lg px-4 py-2 flex-1"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <select
-            className="border rounded-lg px-4 py-2"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((c) => (
-              <option key={c.value} value={c.value}>{c.label}</option>
+      <main className="max-w-6xl mx-auto px-4 py-12">
+        {/* Credit Cards Preview */}
+        <section className="mb-16">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">💳 Top Credit Cards</h2>
+            <Link href="/credit-cards" className="text-blue-600 hover:underline text-sm">View all {creditCards.length} cards →</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {topCards.map((card) => (
+              <div key={card.id} className="bg-white rounded-xl shadow-sm border p-5">
+                <div className="text-3xl mb-2">{card.image}</div>
+                <h3 className="font-bold">{card.name}</h3>
+                <p className="text-sm text-gray-500">{card.issuer}</p>
+                <div className="mt-3 flex gap-4 text-sm">
+                  <span className="text-blue-700 font-bold">${card.annualFee}/yr</span>
+                  <span className="text-orange-600 font-bold">{card.purchaseRate}% p.a.</span>
+                </div>
+                {card.signupBonus && <p className="text-green-700 text-xs mt-2">🎁 {card.signupBonus}</p>}
+              </div>
             ))}
-          </select>
-          <select
-            className="border rounded-lg px-4 py-2"
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-          >
-            {sortOptions.map((s) => (
-              <option key={s.value} value={s.value}>{s.label}</option>
+          </div>
+        </section>
+
+        {/* Personal Loans Preview */}
+        <section className="mb-16">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">🏦 Top Personal Loans</h2>
+            <Link href="/personal-loans" className="text-blue-600 hover:underline text-sm">View all {loansData.loans.length} loans →</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {topLoans.map((loan) => (
+              <div key={loan.id} className="bg-white rounded-xl shadow-sm border p-5">
+                <h3 className="font-bold">{loan.name}</h3>
+                <p className="text-sm text-gray-500">{loan.lender}</p>
+                <div className="mt-3 space-y-1 text-sm">
+                  <p><span className="text-blue-700 font-bold">{loan.minRate}%</span> — <span className="text-orange-600 font-bold">{loan.maxRate}% p.a.</span></p>
+                  <p className="text-gray-500">${loan.minAmount.toLocaleString()} – ${loan.maxAmount.toLocaleString()}</p>
+                  <p className="text-xs text-gray-400">{loan.type} · {loan.minTerm}–{loan.maxTerm} years</p>
+                </div>
+              </div>
             ))}
-          </select>
-        </div>
+          </div>
+        </section>
 
-        <p className="text-gray-500 mb-4 text-sm">Showing {filtered.length} cards</p>
-
-        <div className="space-y-4">
-          {filtered.map((card) => (
-            <CardRow key={card.id} card={card} />
-          ))}
-          {filtered.length === 0 && (
-            <p className="text-center text-gray-400 py-12">No cards match your filters.</p>
-          )}
-        </div>
+        {/* BNPL Preview */}
+        <section className="mb-16">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">🛒 Buy Now Pay Later</h2>
+            <Link href="/bnpl" className="text-blue-600 hover:underline text-sm">View all {bnplData.providers.length} providers →</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {topBnpl.map((p) => (
+              <div key={p.id} className="bg-white rounded-xl shadow-sm border p-5">
+                <h3 className="font-bold">{p.name}</h3>
+                <p className="text-sm text-gray-500">{p.parent}</p>
+                <div className="mt-3 space-y-1 text-sm">
+                  <p>Max spend: <span className="font-bold text-blue-700">${p.maxAmount.toLocaleString()}</span></p>
+                  <p className="text-gray-500">{p.period}</p>
+                  <p className="text-xs">Late fee: {p.lateFee === 0 ? "✅ None" : `$${p.lateFee}`}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* SEO Content */}
-        <section className="mt-16 prose max-w-none">
-          <h2>How to Choose the Right Credit Card in Australia</h2>
+        <section className="prose max-w-none">
+          <h2>Your Guide to Australian Financial Products</h2>
           <p>
-            Choosing a credit card depends on your spending habits and financial goals. If you rarely carry a balance,
-            a rewards or cashback card can earn you points or money back on everyday purchases. If you sometimes carry
-            a balance, a low-rate card will save you hundreds in interest. For those looking to consolidate debt, a
-            balance transfer card with a long 0% introductory period is ideal.
+            Finding the right financial product can save you thousands of dollars. Whether you&apos;re looking for a credit card
+            with the best rewards, a personal loan with the lowest rate, or a Buy Now Pay Later service that fits your
+            shopping habits — our hub compares them all in one place.
           </p>
-          <h3>Key Factors to Compare</h3>
-          <ul>
-            <li><strong>Annual Fee:</strong> Some no-fee cards offer great value, but premium cards often pay for themselves with perks.</li>
-            <li><strong>Purchase Rate:</strong> The interest charged on balances carried past the interest-free period.</li>
-            <li><strong>Rewards Program:</strong> Points, Qantas miles, or cashback — choose based on what you'll actually use.</li>
-            <li><strong>Foreign Transaction Fees:</strong> If you travel or shop internationally, look for 0% foreign fees.</li>
-            <li><strong>Interest-Free Days:</strong> Up to 55 days is standard; always pay in full to maximise this.</li>
-          </ul>
+          <h3>Credit Cards</h3>
+          <p>
+            Australia has over 200 credit cards on the market. We compare annual fees, interest rates, rewards programs,
+            and special features to help you find the best match. Categories include low-fee, low-rate, rewards, cashback,
+            premium, and balance transfer cards.
+          </p>
+          <h3>Personal Loans</h3>
+          <p>
+            Whether you need funds for a car, renovation, or debt consolidation, personal loans from major banks start
+            from around 6.49% p.a. We compare fixed vs variable rates, fees, loan amounts, and flexibility features
+            like redraw and extra repayments.
+          </p>
+          <h3>Buy Now Pay Later</h3>
+          <p>
+            BNPL services like Afterpay, Zip, Klarna, and humm let you split purchases into interest-free installments.
+            But they differ significantly in spending limits, late fees, and merchant availability. Compare them here
+            before committing.
+          </p>
           <h3>Disclaimer</h3>
           <p className="text-sm text-gray-500">
-            Information on this page is for general comparison purposes only and may not be current.
-            Always check the card issuer&apos;s website for the latest terms, rates, and conditions before applying.
-            This site does not provide financial advice.
+            This site provides general information only and does not constitute financial advice. Product details may
+            change — always verify with the provider before making financial decisions.
           </p>
         </section>
       </main>
-
-      <footer className="bg-gray-900 text-gray-400 text-center py-8 mt-16 text-sm">
-        <p>© {new Date().getFullYear()} AU Credit Card Comparison. For informational purposes only.</p>
-      </footer>
     </div>
   );
 }
