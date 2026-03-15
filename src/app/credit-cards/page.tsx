@@ -25,7 +25,9 @@ function CardRow({ card }: { card: CreditCard }) {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow">
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="text-4xl">{card.image}</div>
+        <div className={`w-14 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xs ${
+          card.cardNetwork === "Visa" ? "bg-blue-600" : card.cardNetwork === "Mastercard" ? "bg-red-500" : "bg-gray-700"
+        }`}>{card.cardNetwork}</div>
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-lg">{card.name}</h3>
           <p className="text-gray-500 text-sm">{card.issuer} · {card.cardNetwork}</p>

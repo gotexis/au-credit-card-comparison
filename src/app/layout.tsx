@@ -21,6 +21,7 @@ const navLinks = [
   { href: "/personal-loans", label: "Personal Loans" },
   { href: "/bnpl", label: "BNPL" },
   { href: "/tools/credit-card-comparison", label: "Compare Tool" },
+  { href: "/guides/newcomers", label: "🆕 New to AU" },
 ];
 
 export default function RootLayout({
@@ -30,6 +31,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "AU Financial Products Hub",
+              url: "https://creditcard.rollersoft.com.au",
+              description: "Compare Australian credit cards, personal loans, and BNPL services with real data from major providers.",
+              publisher: {
+                "@type": "Organization",
+                name: "AU Financial Products Hub",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="bg-gray-50 text-gray-900 antialiased">
         <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-6 overflow-x-auto">

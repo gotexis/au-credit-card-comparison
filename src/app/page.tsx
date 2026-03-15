@@ -43,7 +43,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {topCards.map((card) => (
               <div key={card.id} className="bg-white rounded-xl shadow-sm border p-5">
-                <div className="text-3xl mb-2">{card.image}</div>
+                <div className={`w-12 h-8 rounded flex items-center justify-center text-white font-bold text-xs mb-2 ${
+                  card.cardNetwork === "Visa" ? "bg-blue-600" : card.cardNetwork === "Mastercard" ? "bg-red-500" : "bg-gray-700"
+                }`}>{card.cardNetwork}</div>
                 <h3 className="font-bold">{card.name}</h3>
                 <p className="text-sm text-gray-500">{card.issuer}</p>
                 <div className="mt-3 flex gap-4 text-sm">
